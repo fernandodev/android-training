@@ -1,21 +1,31 @@
 package com.fernandodev.fragmentsample.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.fernandodev.fragmentsample.R;
+import com.fernandodev.fragmentsample.activities.SecondaryActivity;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * Created by fernando on 8/28/15.
  */
 public class HelloFragment extends Fragment {
 
-  TextView mMessage;
+  @Bind(R.id.email)
+  EditText mEmail;
+  @Bind(R.id.login)
+  Button mLogin;
+
 
   String message;
 
@@ -46,7 +56,18 @@ public class HelloFragment extends Fragment {
   @Override
   public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
-    mMessage = (TextView) view.findViewById(R.id.message);
-    mMessage.setText(message);
+    ButterKnife.bind(this, view);
+
+    mLogin.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent i = new Intent(getActivity(), SecondaryActivity.class);
+
+        String email = mEmail.getText().toString();
+        i.putExtra("key_email", email);
+        getActivity().startActivity(i);
+        getActivity().finish();
+      }
+    });
   }
 }
