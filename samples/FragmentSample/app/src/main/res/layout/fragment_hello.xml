@@ -1,93 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
 
   <ImageView
       android:id="@+id/avatar"
-      android:src="@drawable/profile"
-      android:layout_marginTop="25dp"
-      android:layout_centerHorizontal="true"
       android:layout_width="120dp"
-      android:layout_height="120dp"/>
+      android:layout_height="120dp"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="25dp"
+      android:src="@drawable/profile"/>
 
   <TextView
       android:id="@+id/name"
-      android:text="Zé Gotinha"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
       android:layout_below="@+id/avatar"
       android:layout_marginTop="10dp"
       android:gravity="center_horizontal"
-      android:textSize="28sp"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"/>
+      android:text="Zé Gotinha"
+      android:textSize="28sp"/>
 
   <LinearLayout
-      android:layout_marginTop="15dp"
-      android:layout_below="@+id/name"
-      android:orientation="vertical"
-      android:padding="25dp"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content">
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/name"
+      android:layout_marginTop="15dp"
+      android:orientation="vertical"
+      android:padding="25dp">
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
 
       <TextView
-          android:text="E-mail:"
-          android:textSize="18sp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
           android:layout_weight="1"
           android:gravity="right"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"/>
+          android:text="E-mail:"
+          android:textSize="18sp"/>
 
       <EditText
           android:id="@+id/email"
-          android:hint="seu@email.com"
-          android:textSize="18sp"
-          android:gravity="left"
-          android:inputType="textEmailAddress"
-          android:layout_weight="1"
           android:layout_width="200dp"
-          android:layout_height="wrap_content"/>
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:gravity="left"
+          android:hint="seu@email.com"
+          android:inputType="textEmailAddress"
+          android:textSize="18sp"/>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
       <TextView
-          android:text="Senha:"
-          android:textSize="18sp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
           android:layout_weight="1"
           android:gravity="right"
           android:inputType="textEmailAddress"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"/>
+          android:text="Senha:"
+          android:textSize="18sp"/>
 
       <EditText
-          android:hint="********"
-          android:textSize="18sp"
-          android:layout_weight="1"
-          android:inputType="textPassword"
           android:layout_width="200dp"
-          android:layout_height="wrap_content"/>
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:hint="********"
+          android:inputType="textPassword"
+          android:textSize="18sp"/>
     </LinearLayout>
 
     <Button
         android:id="@+id/login"
-        android:text="Login"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Login"/>
   </LinearLayout>
 
 </RelativeLayout>

@@ -9,9 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.fernandodev.fragmentsample.Config;
 import com.fernandodev.fragmentsample.R;
 import com.fernandodev.fragmentsample.activities.SecondaryActivity;
+import com.fernandodev.fragmentsample.entities.Storage;
+import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -21,13 +26,18 @@ import butterknife.ButterKnife;
  */
 public class HelloFragment extends Fragment {
 
+  @Bind(R.id.avatar)
+  ImageView mAvatar;
+  @Bind(R.id.name)
+  TextView mName;
   @Bind(R.id.email)
   EditText mEmail;
   @Bind(R.id.login)
   Button mLogin;
 
-
   String message;
+  Storage storage;
+  Config config;
 
   public static HelloFragment newInstance(String message) {
 
@@ -45,6 +55,8 @@ public class HelloFragment extends Fragment {
     super.onCreate(savedInstanceState);
     Bundle arguments = getArguments();
     message = arguments.getString("fragment.message");
+    config = new Config(getActivity());
+    storage = new Storage(getActivity());
   }
 
   @Nullable
@@ -57,7 +69,7 @@ public class HelloFragment extends Fragment {
   public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
     ButterKnife.bind(this, view);
-
+    mName.setText(storage.getUserName());
     mLogin.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -69,5 +81,10 @@ public class HelloFragment extends Fragment {
         getActivity().finish();
       }
     });
+
+    Picasso.with(getContext())
+        .load("http://findicons.com/files/icons/1072/face_avatars/300/i03.png")
+        .placeholder(R.drawable.profile)
+        .into(mAvatar);
   }
 }

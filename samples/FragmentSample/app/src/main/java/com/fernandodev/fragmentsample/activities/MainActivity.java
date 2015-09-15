@@ -5,11 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.fernandodev.fragmentsample.R;
+import com.fernandodev.fragmentsample.entities.Storage;
 import com.fernandodev.fragmentsample.fragments.HelloFragment;
 
 public class MainActivity extends AppCompatActivity {
 
   View container;
+  Storage storage;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
 
     container = findViewById(R.id.container);
+    storage = new Storage(this);
 
     getSupportFragmentManager().beginTransaction()
         .replace(R.id.container, HelloFragment.newInstance("Hello World"))
